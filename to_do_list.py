@@ -18,3 +18,10 @@ def view_tasks(tasks):
     for i, task in enumerate(tasks, start=1):
         status= "completed" if task["completed"] else "Pending"
         print(f"{i}. {task['description']} ({status})")
+
+# Adding tasks function, 'add new task'
+
+def add_task(tasks):
+    description = input("Enter the task description: ")
+    tasks.append({"description": description, "completed": False})
+    print("Task added.")
