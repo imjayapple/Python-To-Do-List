@@ -25,3 +25,23 @@ def add_task(tasks):
     description = input("Enter the task description: ")
     tasks.append({"description": description, "completed": False})
     print("Task added.")
+
+# Mark tasks as completed
+
+def mark_task_completed(tasks):
+    view_tasks(tasks)
+
+    if not tasks:
+        return
+    
+    while True:
+        try:
+            task_number = int(input("Enter the task number you want to mark as completed: "))
+            if task_number < 1 or task_number > len(tasks):
+                raise ValueError
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid task number.")
+
+    tasks[task_number - 1]["completed"] = True
+    print("Task marked as completed.")
